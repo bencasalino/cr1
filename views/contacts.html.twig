@@ -1,0 +1,52 @@
+<!-- this page is where the user actually lists all of the addresss's after they are input. -->
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Address Book</title>
+</head>
+<body>
+    <div class="container">
+        <h1>T</h1>
+        <!--list all the user inputed data -->
+        {% if contacts is not empty %}
+            <p> here are all your contacts: </p>
+            <ul>
+                {% for contact in contacts %}
+                    <li>{{ contact.getDescription }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action='/contacts' method='post'>
+            <!-- start input form -->
+            <div class="form-group">
+            <!-- new contact -->
+            <label for='description'>New Contact</label>
+            <!-- area to type contact name -->
+            <input id='description' name='description' type='form-control'>
+            <button class="btn btn-primary" type='submit'>Add Contact Name</button>
+
+            <!-- new address -->
+            <label for='description'>New Contact</label>
+            <!-- area to type address -->
+            <input id='description' name='description' type='form-control'>
+            <button class="btn btn-primary" type='submit'>Add Address</button>
+            <!-- new phone number -->
+            <label for='description'>New Contact</label>
+            <!-- area to type new number -->
+            <input id='description' name='description' type='form-control'>
+            <button class="btn btn-primary" type='submit'>Add Phone Number </button>
+
+        </div>
+
+        </form>
+        <form action='/delete_contacts' method='post'>
+            <div class="form-group">
+            <button class="btn btn-primary" type='submit'>Clear</button>
+        </div>
+        </form>
+    </div>
+
+</body>
+</html>
